@@ -1,0 +1,12 @@
+{{- block "aside" . }}
+<aside><hr>
+	<h5>関連項目</h5>
+	{{- partial "terms.html" (dict "taxonomy" "tags" "page" .) -}}
+	<h5>コンテンツ</h5>
+	{{- partial "body/nav.html" . -}}
+	<h5>最近の更新</h5>
+	{{- partial "recent.html" . -}}
+	<h5>タクソノミー</h5>
+	{{- partial "keys.html" . -}}
+</aside>
+{{- end -}}

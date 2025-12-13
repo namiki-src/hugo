@@ -1,0 +1,137 @@
+baseURL: 'https://example.org/'
+languageCode: 'ja-JP'
+title: "Hugo Site"
+
+params:
+  description: ""
+  dateFormat: "2006/01/02"
+  author:
+    name: "S.namiki"
+    email: "189622114+namiki-src@users.noreply.github.com."
+
+taxonomies:
+  tag: "tag"
+  icon: "icon"
+  category: "color"
+
+permalinks:
+  section:
+    docs: "/:sections/"
+    blog: "/blog/"
+  page:
+    docs: "/:sections/:slug/"
+    blog: "/blog/:year/:slugorcontentbasename"
+    about: "/aboug.html"
+  taxonomy:
+    tag: "/blog/tag/"
+    color: "/blog/colory/"
+    icon: "/blog/icon/"
+  term:
+    tag: "/blog/tag/:slugorcontentbasename"
+    color: "/blog/colory/:slugorcontentbasename"
+    icon: "/blog/icon/:slugorcontentbasename"
+
+pagenation:
+  path: "/blog"
+  pagerSize: 8
+
+outputs:
+  home: [html,rss]
+  page: [html]
+  section: [html]
+  taxonomy: [html]
+  term: [html]
+
+menu:
+  main:
+    - identifier: docs
+      name: "ページ"
+      pageRef: /docs
+      pre: folder
+      weight: 60
+    - identifier: blog
+      name: "ブログ"
+      pageRef: /blog
+      pre: folder
+      weight: 90
+
+module:
+  hugoVersion:
+    extended: true
+    min: 0.146.0
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block: [['\[', '\]'], ['$$', '$$']]
+          inline: [['\(', '\)']]
+  highlight:
+    anchorLineNos: true
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ''
+    hl_inline: false
+    lineAnchors: ''
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: true
+    noHl: false
+    style: 'friendly'
+    tabWidth: 4
+
+minify:
+  disableCSS: false
+  disableHTML: false
+  disableJS: false
+  disableJSON: false
+  disableSVG: false
+  disableXML: false
+  minifyOutput: false
+  tdewolff:
+    css:
+      keepCSS2: true
+      precision: 0
+    html:
+      keepComments: false
+      keepConditionalComments: true
+      keepDefaultAttrVals: true
+      keepDocumentTags: true
+      keepEndTags: false
+      keepQuotes: true
+      keepWhitespace: false
+    js:
+      keepVarNames: false
+      noNullishOperator: false
+      precision: 0
+    json:
+      keepNumbers: false
+      precision: 0
+    svg:
+      keepComments: false
+      precision: 0
+    xml:
+      keepWhitespace: false
+
+build:
+  buildStats:
+    disableClasses: false
+    disableIDs: false
+    disableTags: false
+    enable: false
+  cachebusters:
+  - source: assets/.*\.(js|ts|jsx|tsx)
+    target: (js|scripts|javascript)
+  - source: assets/.*\.(css|sass|scss)$
+    target: (css|styles|scss|sass)
+  - source: (postcss|tailwind)\.config\.js
+    target: (css|styles|scss|sass)
+  - source: assets/.*\.(.*)$
+    target: $1
+  noJSConfigInAssets: false
+  useResourceCacheWhen: fallback

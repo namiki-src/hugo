@@ -1,0 +1,24 @@
+<ul class="crumbs">
+	{{- range .Ancestors.Reverse }}
+		{{- with partial "body/link.html" (dict "page" . "area" "") }}
+		<li>{{ . }}</li>
+		{{- end -}}
+	{{- end }}
+		{{- with partial "body/link.html" (dict "page" . "area" "page") }}
+		<li>{{ . }}</li>
+		{{- end -}}
+	{{- $next := .PrevInSection -}}
+	{{- if not $next -}}
+		{{- $save := . -}}
+		{{- with .Params.next -}}
+			{{- with $save.GetPage . -}}
+				{{- $next = . -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end }}
+	{{- with $next -}}
+		{{- with partial "body/link.html" (dict "page" . "area" "") }}
+		<li class="next">{{ . }}</li>
+		{{- end -}}
+	{{- end }}
+</ul>

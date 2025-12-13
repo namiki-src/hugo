@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html{{ with site.Language.Lang }} lang="{{ . }}"{{ end }}>
+<head>
+	<meta charset="utf-8">
+	{{- if .IsHome -}}
+	<title>{{ site.Title }}</title>
+	{{- else -}}
+		{{- with replaceRE `<rt>[^<]*` "" .Title -}}
+	<title>{{ . | plainify }} | {{ site.Title }}</title>
+		{{- end -}}
+	{{- end -}}
+{{ partial "head/all.html" . }}
+</head>
+<body>
+{{- partial "body/header.html" . }}
+<main>
+{{- block "main" . -}}{{- end -}}
+</main>
+{{- partial "body/aside.html" . }}
+{{- partial "body/footer.html" . }}
+</body>
+</html>

@@ -1,0 +1,10 @@
+<ul>
+{{- range $name,$taxonomy  := .Site.Taxonomies -}}
+	{{- $url := print ("/" | relLangURL) ($name | urlize) -}}
+	<li><a href="{{ $url }}">{{ $name }}</a><ul>
+	{{- range $term,$entry := $taxonomy -}}
+		<li><a href="{{ print $url "/" ($term | urlize) }}">{{ $term }}</a></li>
+	{{- end -}}
+	</ul></li>
+{{- end -}}
+</ul>

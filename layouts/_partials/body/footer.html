@@ -1,0 +1,12 @@
+{{- block "footer" . }}
+<footer><hr>
+<h6>{{ printf "layouts of Hugo [%s/%s] %s" .Type .Kind .Section }}</h6>
+{{- with .Site.Params.author -}}
+	{{- $copy := compare.Default .name .Site.Copyright }}
+<div class="copywrite">
+<u>Copywrite:</u> © {{ now.Year }} {{ $copy }}, <br>All rights reserved.<br>
+</div>
+<address><a href="mailto:{{ .email }}">mail: {{ .email }}</a></address>
+{{- end }}
+</footer>
+{{- end -}}

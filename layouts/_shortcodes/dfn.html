@@ -1,0 +1,6 @@
+{{- $inner := (.Get 0) }}
+{{- with (.Get 1) -}}
+<dfn title="{{ . }}">{{ $inner }}</dfn>
+{{- else -}}
+<dfn>{{ $inner }}</dfn>
+{{- end -}}

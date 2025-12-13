@@ -1,0 +1,13 @@
+{{ define "main" }}
+	{{ partial "main/crumb.html" . }}
+	{{ partial "main/date.html" . }}
+	{{ partial "main/article.html" . }}
+
+	<div class="cards">
+		{{- range .Paginator.Pages -}}
+	<dl><dt>{{ .Title | safeHTML }}</dt>
+		<dd>{{ .Render "summary" }}</dd>
+	</dl>
+		{{- end -}}
+    {{- partial "pagination.html" . -}}
+{{ end }}

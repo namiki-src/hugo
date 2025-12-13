@@ -1,0 +1,12 @@
+{{ define "main" }}
+{{- $page := . -}}
+<section>
+	<h2>Term of {{ .Title | safeHTML }}</h2>
+	<dl class="dl-f2">
+	{{- range .Pages -}}
+		<dt><a href="{{ .Permalink }}">{{ .Title | safeHTML }}</a></dt>
+		<dd><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></dd>
+	{{- end -}}
+	</dl>
+</section>
+{{- end -}}

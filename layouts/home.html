@@ -1,0 +1,24 @@
+{{ define "main" }}
+	<h2>{{ .Title | safeHTML }}</h2>
+	{{ .Content }}
+
+	<h2>コンテンツ</h2>
+	<ul>
+	{{- range site.Sections -}}
+		{{ partial "main/date.html" . }}
+		<li><a href="{{ .RelPermalink }}">{{ .Title | safeHTML }}</a></li>
+		{{ .Summary }}
+	{{- end -}}
+	</ul>
+
+	<h2>サイトマップ</h2>
+	<ul>
+	{{- range site.RegularPages -}}
+		{{ partial "main/date.html" . }}
+		<section>
+		<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle | safeHTML }}</a></h2>
+		{{ .Summary }}
+		</section>
+	{{ end }}
+	</ul>
+{{ end }}

@@ -1,0 +1,4 @@
+{{- $path := "/favicon.svg" -}}
+{{- if or (fileExists $path) (fileExists (path.Join "/static" $path)) -}}
+<link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"/>
+{{ end }}

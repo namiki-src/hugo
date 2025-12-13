@@ -1,0 +1,20 @@
+{{- $opts := dict
+	"traspiler" "libsass"
+	"targetPath" "main.css"
+	"outputStyle" "compact"
+	"includePaths" true -}}
+{{- with resources.Get "css/main.scss" | toCSS $opts -}}
+	{{- if or true hugo.IsDevelopment }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+	{{- else -}}
+		{{- with . | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}"
+	crossorigin="anonymous" integrity="{{ .Data.Integrity }}">
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+{{- $noo := .WordCount -}}
+{{- if .Page.Store.Get "hasMath" }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css"
+	crossorigin="anonymous" integrity="sha384-WcoG4HRXMzYzfCgiyfrySxx90XSl2rxY5mnVY5TwtWE6KLrArNKn0T/mOgNL0Mmi">
+{{- end -}}

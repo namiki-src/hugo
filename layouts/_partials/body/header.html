@@ -1,0 +1,11 @@
+{{- block "header" . }}
+<header>
+	<h1>{{ site.Title }}</h1>
+	{{- block "menu" . -}}
+	{{/*
+		{{ partial "nav.html" . }}
+		{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+	*/}}
+	{{- end -}}
+</header>
+{{- end -}}

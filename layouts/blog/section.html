@@ -1,0 +1,14 @@
+{{ define "main" }}
+	{{ partial "main/crumb.html" . }}
+
+	{{- range .Paginator.Pages -}}
+		{{ partial "main/date.html" . }}
+		<article>
+		<h2>{{ .Title | safeHTML }}</h2>
+		{{ .Content }}
+		</article>
+	{{- end -}}
+	{{ template "_internal/pagination.html" . }}
+	</section>
+{{ end }}
+

@@ -1,0 +1,6 @@
+{{- $inner := (.Get 0) }}
+{{- with (.Get 1) -}}
+<abbr title="{{ . }}">{{ $inner }}</abbr>
+{{- else -}}
+<abbr>{{ $inner }}</abbr>
+{{- end -}}

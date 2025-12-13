@@ -1,0 +1,23 @@
+<ul class="menu">
+	{{- partial "inline/nav/walk.html" (dict "page" . "entry" .Site.Sections) -}}
+	{{- partial "inline/nav/walk.html" (dict "page" . "entry" .Site.Home.RegularPages) }}
+</ul>
+
+{{- define "_partials/inline/nav/walk.html" -}}
+	{{- $page:= .page -}}
+	{{- range .entry -}}
+		{{- $area := "" -}}
+		{{- if eq .RelPermalink $page.RelPermalink }}
+			{{- $area = "page" -}}
+		{{- end -}}
+		{{- $link := partial "body/link.html" (dict "page" . "area" $area) -}}
+		{{- if $link -}}
+			<li>{{ $link }}</li>
+			{{- with .Pages }}
+			<ul>
+				{{- partial "inline/nav/walk.html" (dict "page" $page "entry" .) }}
+			</ul>
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}

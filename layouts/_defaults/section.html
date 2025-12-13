@@ -1,0 +1,8 @@
+{{ define "main" }}
+	{{ partial "main/crumb.html" . }}
+	{{ partial "main/date.html" . }}
+	{{ partial "main/article.html" . }}
+{{- end -}}
+{{ define "aside" }}
+	{{ partial "main/toc.html" . }}
+{{- end -}}

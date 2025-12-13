@@ -1,0 +1,4 @@
+<details>
+    <summary>{{ (.Get 0) | strings.TrimSpace | .Page.RenderString }}</summary>
+    {{ .Inner | .Page.RenderString }}
+</details>

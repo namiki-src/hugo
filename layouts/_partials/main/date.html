@@ -1,0 +1,22 @@
+<hr>
+<dl class="tags dl-f2 dt-w50">
+	{{- with .Params.Date -}}
+		{{- $dateMachine := . | time.Format "2006-01-02T15:04:05-07:00" -}}
+		{{- $dateHuman := . | time.Format ":date_long" -}}
+		<dt><time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></dt>
+	{{- end -}}
+		<dd>
+	{{- $color := "black" }}
+	{{- range .Params.color -}}
+		{{- with . -}}
+			{{- $color = . -}}
+			{{- break -}}
+		{{- end -}}
+	{{- end -}}
+	{{- range .Params.tag -}}
+		{{- with . -}}
+		<span class="tag {{ $color }}">{{ . }}</span>
+		{{- end -}}
+	{{- end -}}
+		</dd>
+</dl>

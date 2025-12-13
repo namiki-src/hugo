@@ -1,0 +1,17 @@
+<article>
+<h2>{{ .Title | safeHTML }}</h2>
+{{- with .Content -}}
+	{{ . }}
+{{- else -}}
+	{{ if .IsSection -}}
+	{{- with .CurrentSection -}}
+		{{- range .Pages -}}
+		<section>
+		<h3>{{ .Title | safeHTML }}</h3>
+			{{ .Content }}
+		</section>
+		{{- end -}}
+	{{- end -}}
+	{{- end -}}
+</article>
+{{- end -}}

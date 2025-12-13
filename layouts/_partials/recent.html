@@ -1,0 +1,6 @@
+<dl class="dl-f2 w90 dd-brown dt-90 dd-90">
+{{- range first 5 .Site.RegularPages.ByDate.Reverse -}}
+	<dt><a href="{{ .RelPermalink }}">{{ .Title | safeHTML }}</a></dt>
+	<dd><time>{{.Date.Format "2006-01-02"}}</time></dd>
+{{- end -}}
+</dl>

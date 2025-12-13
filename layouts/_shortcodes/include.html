@@ -1,0 +1,6 @@
+{{- $name := index .Params 0 -}}
+{{- range .Page.Node.Site.Pages -}}
+	{{- if eq $name .Source.File.Path -}}
+		{{ .Content }}
+	{{- end -}}
+{{- end -}}

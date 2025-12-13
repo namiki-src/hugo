@@ -1,0 +1,29 @@
+{{- if true }}
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+{{- end }}
+	<meta name="viewport" content="width=device-width,minimum-scale=1"/>
+{{- $production := hugo.IsProduction -}}
+{{- $public := not .Params.private -}}
+{{- if and $production $public }}
+	<meta name="robots" content="index, follow"/>
+{{- else -}}
+	<meta name="robots" content="noindex, nofollow"/>
+{{- end -}}
+{{- with .Params.author | compare.Default .Site.Params.author.name -}}
+	{{- $author := . -}}
+	{{- if reflect.IsSlice . -}}
+		{{- $author = collections.Delimit . ", " | transform.Plainify -}}
+	{{- end }}
+	<meta name="author" content="{{ $author }}"/>
+{{- end -}}
+{{- partial "head/ogp.html" . -}}
+{{- if true -}}
+	{{- $out := printf "%s; %s/%s; %s" .RelPermalink .Type .Kind .Section }}
+	<meta property="hugo-info" content="{{ $out }}"/>
+{{- end -}}
+{{- partial "head/icon.html" . -}}
+{{- partial "head/css.html" . -}}
+{{- partial "head/js.html" . -}}
+{{- block "head" . -}}
+{{- end -}}
+

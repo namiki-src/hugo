@@ -1,0 +1,31 @@
+{{- $area := .area -}}
+{{- with .page -}}
+	{{- $class := slice -}}
+	{{- $title := .Title -}}
+	{{- if .IsHome -}}
+		{{- $class = slice "icon" "home" -}}
+		{{- $title = "ホーム" }}
+	{{- else -}}
+		{{- range .Params.icon -}}
+			{{- $class = slice "icon" . -}}
+			{{- break -}}
+		{{- end -}}
+	{{- end -}}
+	{{- if gt ($class | len) 0 -}}
+		{{- $attrs := dict "href" .Permalink -}}
+		{{- with $area -}}
+			{{- if eq "next" . -}}
+				{{- $class = $class | append "next" -}}
+			{{- else -}}
+				{{- $class = $class | append "active" -}}
+				{{- $attrs = merge $attrs (dict "area-current" .) -}}
+			{{- end -}}
+		{{- end -}}
+		{{- $attrs = merge $attrs (dict "class" (delimit $class " ")) -}}
+	<a{{- range $k,$v := $attrs -}}
+			{{- with $v -}}
+				{{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+			{{- end -}}
+		{{- end -}}>{{ $title | safeHTML -}}</a>
+	{{- end -}}
+{{- end -}}

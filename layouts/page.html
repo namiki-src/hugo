@@ -1,0 +1,10 @@
+{{ define "main" }}
+	{{ partial "main/crumb.html" . }}
+	{{ partial "main/toc.html" . }}
+	{{ partial "main/date.html" . }}
+	{{ partial "main/article.html" . }}
+{{- end -}}
+{{ define "aside" }}
+	{{- partial "terms.html" (dict "taxonomy" "tags" "page" .) -}}
+{{- end -}}
+
