@@ -1,1 +1,74 @@
 @import "_defaults.scss";
+@import "_block.scss";
+@import "_hgroup.scss";
+@import "_table.scss";
+@import "_font.scss";
+@import "_bg.scss";
+/* @import "_header.scss"; */
+@import "_misc.scss";
+@import "_icon.scss";
+
+header {
+	white-space: nowrap;
+	margin:0;
+	padding:0;
+}
+header h1{
+	font-family: serif;
+	font-size: 3.5vw;
+	font-weight: bold;
+	line-height: 1.2;
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+:root{
+	font-family: sans-serif;
+	font-size: calc(2.0vw);
+	line-height: 1.5;
+	background-color: bisque;
+}
+aside{
+	display:none
+}
+@media (min-width: 800px) {
+	:root {
+		font-size: calc(1.3vw);
+		background-color:wheat;
+	}
+	main{
+		box-sizing: border-box;
+		width: 75.5vw;
+		float: right;
+	/*
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 22vw;
+	*/
+		font-size:1.5vw;
+		background-color:bisque;
+	}
+	header{
+		position: relative;
+		width: 23vw;
+		float:left;
+		/* position: sticky; */
+	}
+	header,footer,aside{
+		box-sizing: border-box;
+		width: 23vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		box-sizing: border-box;
+		top: 0;
+	}
+}
+.copywrite{
+	font-family: times;
+	font-size: 85%;
+	line-height: 1.1;
+	padding: 1ex;
+}

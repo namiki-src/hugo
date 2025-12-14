@@ -1,0 +1,61 @@
+blockquote{background-color:var(--bg,#ded)}
+figure{background-color:var(--bg,#cde)}
+pre{background-color:var(--bg,#eec)}
+/*form{background-color:#edc}*/
+
+.bg:not(table){background-color:var(--bg,#eed)}
+.cg,.hg{background-color:var(--hg,#dee)}
+.ag,.fg{background-color:var(--fg,#ded)}
+
+table.bg{background-color:#666}
+.bg th{background-color:var(--hg,#ccc)}
+.bg td{background-color:var(--bg,#eed)}
+.tz-bg td:last-child{background-color:var(--fg,#ded)}
+
+dl.bg dt,.dt-bg dt{background-color:var(--hg,#dee)}
+dl.bg dd,.dd-bg dd{background-color:var(--dg,#eed)}
+dl.bg dt:last-child{background-color:var(--fg,#edd)}
+
+.bg .d,.td-d td:empty{background-color:#aaa8; color:white}
+.bg .k,.td-k td:empty{background-color:#8888; color:white}
+.bg .d dt,.bg .k dt{color:silver}
+.bg .d dd,.bg .k dt{color:white}
+
+$bg_colors: (
+	w1:#eee, w2:#ddd, w3:#ccc, w4:#bbb, w5:#aaa,
+	w6:#999, w7:#777, w8:#444, w9:#111,
+
+	r1:#edd, r2:#ecc, r3:#ebb, r4:#e99, r5:#e33,
+	y1:#eed, y2:#eec, y3:#eeb, y4:#ee9, y5:#ee3,
+	g1:#ded, g2:#cec, g3:#beb, g4:#9e9, g5:#3e3,
+	c1:#dee, c2:#cee, c3:#bee, c4:#9ee, c5:#3ee,
+	b1:#dde, b2:#cce, b3:#bbe, b4:#99e, b5:#33e,
+	m1:#ede, m2:#ece, m3:#ebe, m4:#e9e, m5:#e3e,
+
+	o1:#edc, o2:#edb, o3:#eca, o4:#eb9, o5:#e93,
+	k1:#dec, k2:#deb, k3:#cea, k4:#be9, k5:#9e3,
+	t1:#ced, t2:#bed, t3:#aec, t4:#9eb, t5:#3e9,
+	a1:#cde, a2:#bde, a3:#ace, a4:#9be, a5:#39e,
+	v1:#dce, v2:#dbe, v3:#cae, v4:#b9e, v5:#93e,
+	p1:#ecd, p2:#ebd, p3:#eac, p4:#e9b, p5:#e39,
+);
+@each $c, $v in $bg_colors {
+	.xg-#{$c} .x,
+	.yg-#{$c} .y,
+	.zg-#{$c} .z,
+	.bg-#{$c} {--bg:$v}
+	.hg-#{$c} {--hg:$v}
+	.fg-#{$c} {--fg:$v}
+	.dg-#{$c} {--dg:$v}
+}
+
+@each $x in (25,30,40,50,60,70,75,100) {
+	.dd-w#{$x} dd,
+	.dt-w#{$x} dt,
+	.li-w#{$x} li,
+	.w#{$x} {width: 1% * $x; box-sizing:border-box};
+	.w-#{$x} {width: 1% * $x};
+	.h-#{$x} {height: 1% * $x};
+}
+.w-auto {width:auto}
+.h-auto {height:auto}

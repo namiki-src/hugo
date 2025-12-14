@@ -1,0 +1,37 @@
+.icon::before{
+	display:inline-block;
+	font-family:emoji,sans-serif;
+	font-style:normal;
+	padding:0 0.2ex;
+}
+.icon.book::before{content:"📔"}
+.icon.memo::before{content:"📝"}
+.icon.scroll::before{content:"📜"}
+.icon.pin::before{content:"📌"}
+.icon.lens::before{content:"🔍"}
+.icon.label::before{content:"🏷"}
+.icon.bookmark::before{content:"🔖"}
+.icon.clipboard::before{content:"📋"}
+.icon.pack::before{content:"📦"}
+.icon.briefcase::before{content:"💼"}
+.icon.chart::before{content:"📊"}
+.icon.ticket::before{content:"🎫"}
+.icon.calen::before{content:"📅"}
+.icon.gear::before{content:"⚙"}
+.icon.pc::before{content:"💻"}
+.icon.phone::before{content:"☎"}
+
+.icon.home::before{content:"🏡"}
+.icon.folder::before{content:"📁"}
+.icon.issue::before{content:"📚"}
+.icon.section::before{content:"📒"}
+.icon.page::before{content:"📜"}
+
+.icon.news::before{content:"📰"}
+.icon.tech::before{content:"🔧"}
+.icon.science::before{content:"🔬"}
+.icon.study::before{content:"🎓"}
+
+.icon.battle::before{content:"⚔"}
+.icon.bomb::before{content:"💣"}
+.icon.crown::before{content:"👑"}

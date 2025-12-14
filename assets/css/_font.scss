@@ -1,0 +1,93 @@
+code,samp,var,kbd,
+.ffm,.font-monospace{font-family:ui-monospace,monospace}
+.ffg,.font-gothic{font-family:ui-sans-serif,sans-serif}
+.ffs,.font-serif{font-family:ui-serif,serif}
+.ffc,.font-cursive{font-family:cursive}
+.fff,.font-fantasy{font-family:fantasy}
+.ffa,.font-arial{font-family:arial,Helvetica,ui-rounded,sans-serif}
+.ffi,.font-impact{font-family:impact,sans-serif}
+.ffe,.font-emoji{font-family:emoji}
+
+code,samp,var,kbd{display:inline; font-family:ui-monospcae,monospace}
+blockquote{font-family:serif}
+
+mark u{text-decoration:underline wavy violet}
+mark{padding:0.2ex 0.5ex}
+mark{background-color:#ff9}
+
+.a-hover a:not(:hover){text-decoration:none}
+.a-hover a:hover dd,
+.a-hover a:hover{text-decoration:underline wavy red}
+
+.noline,.dt-noline dt,.dd-noline dd,.th-noline th,.td-noline td{text-decoration:none}
+.underline,.dt-underline dt,.dd-underline dd,.th-underline th,.td-underline td{text-decoration:underline}
+.wavy,.dt-wavy dt,.dd-wavy dd,.th-wavy th,.td-wavy td{text-decoration:underline wavy #e79}
+
+.normal,.dt-normal dt,.dd-normal dd,.th-normal th,.td-normal td{font-style:normal;font-weight:700;text-decoration:none}
+.italic,.dt-italic dt,.dd-italic dd,.th-italic th,.td-italic td{font-style:italic}
+.nobold b,.nobold em,.nobold th,
+.thin,.dt-thin dt,.dd-thin dd,.th-thin th,.td-thin td{font-weight:100}
+.bold,.dt-bold dt,.dd-bold dd,.th-bold th,.td-bold td{font-weight:900}
+
+em{color:red; font-style:normal}
+b{color:blue}
+i{color:green; padding-right:0.25ex}
+s{color:gray}
+u{color:navy; text-decoration:underline solid brown}
+
+@each $c in (white,silver,gray,dimgray,black,
+		red,brown,olive,teal,green,
+		blue,navy,violet,purple,salmon) {
+	.td-#{$c} td,
+	.th-#{$c} th,
+	.dd-#{$c} dd,
+	.dt-#{$c} dt,
+	.#{$c} {color: $c}
+}
+$fg_color: (
+	w1:#fff, w2:#ddd, w3:#bbb, w4:#999,
+	w5:#777, w6:#333, w7:#111,
+
+	r1:#f33, r2:#c33, r3:#933,
+	y1:#ff3, y2:#cc3, y3:#993,
+	g1:#3f3, g2:#3c3, g3:#393,
+	c1:#3ff, c2:#3cc, c3:#399,
+	b1:#33f, b2:#33c, b3:#339,
+	m1:#f3f, m2:#c3c, m3:#939,
+
+	o1:#fc3, o2:#ca3, o3:#a83,
+	k1:#cf3, k2:#ac3, k3:#8a3,
+	t1:#3fc, t2:#3ca, t3:#3a8,
+	a1:#3cf, a2:#3ac, a3:#38a,
+	v1:#c3f, v2:#a3c, v3:#83a,
+	p1:#f3c, p2:#c3a, p3:#a38,
+);
+@each $c, $v in $fg_color {
+	.z-#{$c} .z,
+	.y-#{$c} .y,
+	.x-#{$c} .x,
+	.td-#{$c} td,
+	.th-#{$c} th,
+	.dd-#{$c} dd,
+	.dt-#{$c} dt,
+	.co-#{$c} {color: $v}
+}
+
+@each $z in (50,60,65,70,75,80,85,90,95) {
+	.b-#{$z} b,
+	.i-#{$z} i,
+	.tz-#{$z} td:last-child,
+	.td-#{$z} td,
+	.th-#{$z} th,
+	.dd2-#{$z} dd+dd,
+	.dd-#{$z} dd,
+	.dt-#{$z} dt,
+	.fs-#{$z} {font-size: 1% * $z}
+}
+@each $z in (50,55,60,65,70,75,80,85,90,95,100,
+	110,120,125,130,140,150,160,170,175,180,190,200) {
+		.zs-#{$z} .z,
+		.ys-#{$z} .y,
+		.xs-#{$z} .x,
+		.ts-#{$z} {font-size:0.01rem * $z}
+}
