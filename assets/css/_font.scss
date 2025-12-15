@@ -1,3 +1,30 @@
+
+//	default style
+
+i,em{font-style: italic}
+b,strong{font-weight:bolder}
+small{font-size:80%}
+sub,sup{
+	position:relative;
+	font-size:75%;
+	line-height:0;
+	vertical-align:baseline;
+}
+sub{bottom:-0.25em}
+sup{top:-0.5em}
+
+.color{
+	mark { color:red; background:khaki; }
+	em { color:red; padding-right:0.2ex }
+	b { color:blue }
+	i { color:green; padding-right:0.2ex }
+	s { color:silver }
+	u { color:brown; text-decoration:underline solid navy; }
+	small { color:navy }
+}
+
+//	font-family
+
 code,samp,var,kbd,
 .ffm,.font-monospace{font-family:ui-monospace,monospace}
 .ffg,.font-gothic{font-family:ui-sans-serif,sans-serif}
@@ -8,16 +35,10 @@ code,samp,var,kbd,
 .ffi,.font-impact{font-family:impact,sans-serif}
 .ffe,.font-emoji{font-family:emoji}
 
-code,samp,var,kbd{display:inline; font-family:ui-monospcae,monospace}
+tt,code,samp,var,kbd{display:inline; font-family:ui-monospcae,monospace}
 blockquote{font-family:serif}
 
-mark u{text-decoration:underline wavy violet}
-mark{padding:0.2ex 0.5ex}
-mark{background-color:#ff9}
-
-.a-hover a:not(:hover){text-decoration:none}
-.a-hover a:hover dd,
-.a-hover a:hover{text-decoration:underline wavy red}
+//	font-decoration
 
 .noline,.dt-noline dt,.dd-noline dd,.th-noline th,.td-noline td{text-decoration:none}
 .underline,.dt-underline dt,.dd-underline dd,.th-underline th,.td-underline td{text-decoration:underline}
@@ -29,22 +50,54 @@ mark{background-color:#ff9}
 .thin,.dt-thin dt,.dd-thin dd,.th-thin th,.td-thin td{font-weight:100}
 .bold,.dt-bold dt,.dd-bold dd,.th-bold th,.td-bold td{font-weight:900}
 
-em{color:red; font-style:normal}
-b{color:blue}
-i{color:green; padding-right:0.25ex}
-s{color:gray}
-u{color:navy; text-decoration:underline solid brown}
+mark u{text-decoration:underline wavy violet}
+mark{padding:0.2ex 0.5ex}
+mark{background-color:#ff9}
 
-@each $c in (white,silver,gray,dimgray,black,
-		red,brown,olive,teal,green,
-		blue,navy,violet,purple,salmon) {
-	.td-#{$c} td,
-	.th-#{$c} th,
-	.dd-#{$c} dd,
-	.dt-#{$c} dt,
-	.#{$c} {color: $c}
+//	font-size
+
+@each $v in (50,60,65,70,75,80,85,90,95) {
+	.b-#{$v} b,
+	.i-#{$v} i,
+	.tz-#{$v} td:last-child,
+	.td-#{$v} td,
+	.th-#{$v} th,
+	.dd2-#{$v} dd+dd,
+	.dd-#{$v} dd,
+	.dt-#{$v} dt,
+	.fs-#{$v} {font-size: $v * 1%}
 }
-$fg_color: (
+@each $v in (50,55,60,65,70,75,80,85,90,95,100,
+		110,120,125,130,140,150,160,170,175,180,190,200) {
+	.zs-#{$v} .z,
+	.ys-#{$v} .y,
+	.xs-#{$v} .x,
+	.ts-#{$v} {font-size: $v * 0.01rem}
+}
+@each $v in (10,12,15) {
+	.lh-#{$v} {line-height: $v * 0.1}
+}
+
+//	text-color
+
+@each $v in (white,silver,gray,dimgray,black,
+		red,brown,olive,teal,green,
+		blue,navy,violet,purple,salmon
+) {
+	.mark-#{$v} mark,
+	.em-#{$v} em,
+	.b-#{$v} b,
+
+	.i-#{$v} i,
+	.b-#{$v} b,
+	.u-#{$v} u,
+	.td-#{$v} td,
+	.th-#{$v} th,
+	.dd-#{$v} dd,
+	.dt-#{$v} dt,
+	.#{$v} {color: $v}
+}
+@each $v,$color in (
 	w1:#fff, w2:#ddd, w3:#bbb, w4:#999,
 	w5:#777, w6:#333, w7:#111,
 
@@ -61,33 +114,45 @@ $fg_color: (
 	a1:#3cf, a2:#3ac, a3:#38a,
 	v1:#c3f, v2:#a3c, v3:#83a,
 	p1:#f3c, p2:#c3a, p3:#a38,
-);
-@each $c, $v in $fg_color {
-	.z-#{$c} .z,
-	.y-#{$c} .y,
-	.x-#{$c} .x,
-	.td-#{$c} td,
-	.th-#{$c} th,
-	.dd-#{$c} dd,
-	.dt-#{$c} dt,
-	.co-#{$c} {color: $v}
+) {
+	.z-#{$v} .z,
+	.y-#{$v} .y,
+	.x-#{$v} .x,
+	.td-#{$v} td,
+	.th-#{$v} th,
+	.dd-#{$v} dd,
+	.dt-#{$v} dt,
+	.co-#{$v} {color: $color}
 }
 
-@each $z in (50,60,65,70,75,80,85,90,95) {
-	.b-#{$z} b,
-	.i-#{$z} i,
-	.tz-#{$z} td:last-child,
-	.td-#{$z} td,
-	.th-#{$z} th,
-	.dd2-#{$z} dd+dd,
-	.dd-#{$z} dd,
-	.dt-#{$z} dt,
-	.fs-#{$z} {font-size: 1% * $z}
+//	anchor
+
+a,button{
+	cursor:revert;
 }
-@each $z in (50,55,60,65,70,75,80,85,90,95,100,
-	110,120,125,130,140,150,160,170,175,180,190,200) {
-		.zs-#{$z} .z,
-		.ys-#{$z} .y,
-		.xs-#{$z} .x,
-		.ts-#{$z} {font-size:0.01rem * $z}
+
+a {text-decoration: none}
+a[target],.link{text-decoration: underline}
+a:hover {text-decoration: underline wavy red}
+
+/*
+a:not([class]){
+	position:relative;
+	color:currentColor;
+	text-decoration-skip-ink:auto;
 }
+*/
+
+//	ruby
+
+rt{
+	font-weight:100;
+	letter-spacing:-0.3ex;
+}
+.en rt{
+	letter-spacing:0;
+}
+
+
+
+

@@ -1,0 +1,105 @@
+//	section
+
+body{margin:0; padding:0; min-height:100vh}
+header,footer{margin:0; padding:0.25ex}
+main{margin:0; padding:1ex 2em}
+
+.body{
+	padding:0.1em 1em 0.3em;
+}
+.container,article{
+	margin:0.5em -1em;
+	padding:0.5em 2em;
+	border-radius:0.3ex
+}
+
+:root{
+	font-family: sans-serif;
+	font-size: calc(2.0vw);
+	line-height: 1.5;
+	background-color: bisque;
+}
+header {
+	margin:0;
+	padding:0;
+	white-space: nowrap;
+	h1 {
+		font-family: serif;
+		font-size: 3.5vw;
+		font-weight: bold;
+		line-height: 1.2;
+		width: 100%;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+	}
+	ruby{
+		font-size:66%;
+	}
+}
+header,footer,aside{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/*	position: sticky;
+		top:0;
+	*/
+}
+aside{
+	visibility: hidden;
+}
+@media (min-width: 800px) {
+	:root {
+		font-size: calc(1.3vw);
+		background-color:wheat;
+	}
+	main{
+		display: flow-root;
+		float: right;
+		box-sizing:border-box;
+		width: 76.5vw;
+		font-size:1.5vw;
+		background-color:bisque;
+	}
+	aside{
+		visibility: visible;
+	}
+	header,footer,aside {
+		clear:left;
+		float:left;
+		box-sizing:border-box;
+		width:22vw;
+	}
+}
+.copywrite{
+	font-family: times;
+	font-size: 85%;
+	line-height: 1.1;
+	padding: 1ex;
+}
+
+.menu ul,ul.menu,
+aside ul,
+nav ul{
+	padding-inline: 0;
+	padding-inline-start:0;
+	padding: 0.2ex 0 0.2ex 3ex;
+	list-style:none;
+}
+.menu{
+	margin:0 1.5em 0 -2em;
+}
+.menu .active::after,
+aside .active::after,
+nav .active::after{
+	content: "☜";
+	display: block;
+	float: right;
+	text-align: right;
+	margin: 0 -1.5em 1em 0;
+	font-size:160%;
+	line-height:0.9;
+	color: red;
+	white-space:nowrap;
+	text-decoration-line: none;
+}
